@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NevoryN Web AI Creations — Orders</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#080808;color:#fff;font-family:Inter,Arial,sans-serif}
+.wrap{width:min(1050px,94%);margin:auto;padding:42px 0 70px}
+header{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:30px}
+h1{font-size:28px;margin:0}h1 span{color:#ff3030}header p{color:#777;margin:7px 0 0}
+.actions{display:flex;gap:10px}button{border:1px solid #333;background:#151515;color:#fff;border-radius:10px;padding:11px 15px;cursor:pointer;font-weight:700}
+button:hover{border-color:#e52b2b}.danger{color:#ff6565}
+.grid{display:grid;gap:17px}.empty{border:1px dashed #333;border-radius:17px;padding:50px;text-align:center;color:#777}
+.order{background:#111;border:1px solid #292929;border-radius:17px;padding:22px}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;border-bottom:1px solid #242424;padding-bottom:15px;margin-bottom:17px}
+.name{font-size:21px;font-weight:800}.id{font:12px monospace;color:#ff4545;margin-top:5px}
+.status{background:#291010;color:#ff6666;border:1px solid #4a2020;padding:7px 10px;border-radius:20px;font-size:12px;font-weight:800}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.field{background:#0b0b0b;border-radius:11px;padding:13px}.field b{display:block;color:#777;font-size:11px;text-transform:uppercase;margin-bottom:7px}.field div{white-space:pre-wrap;color:#ddd;line-height:1.5;font-size:14px}
+.email{color:#ff7777!important}.meta{color:#666;font-size:11px;margin-top:15px}
+@media(max-width:700px){header,.top{flex-direction:column}.fields{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div><h1>NevoryN Web <span>AI Creations</span></h1><p>AI Creation Orders</p></div>
+  <div class="actions"><button onclick="loadOrders()">↻ Refresh</button><button class="danger" onclick="clearOrders()">Clear Orders</button></div>
+</header>
+<div class="grid" id="orders"></div>
+</div>
+<script>
+document.addEventListener("contextmenu",e=>e.preventDefault());
+document.addEventListener("keydown",e=>{
+  if((e.ctrlKey && ["u","s"].includes(e.key.toLowerCase())) || e.key==="F12" ||
+     (e.ctrlKey && e.shiftKey && ["i","j","c"].includes(e.key.toLowerCase()))) e.preventDefault();
+});
+
+function esc(v){const d=document.createElement("div");d.textContent=v??"";return d.innerHTML}
+function loadOrders(){
+ const orders=JSON.parse(localStorage.getItem("nevoryn_ai_orders")||"[]");
+ const box=document.getElementById("orders");
+ if(!orders.length){box.innerHTML='<div class="empty">No AI creation orders yet.</div>';return}
+ box.innerHTML=orders.map(o=>`
+ <article class="order">
+  <div class="top">
+   <div><div class="name">${esc(o.name)}</div><div class="id">${esc(o.id)}</div></div>
+   <div class="status">${esc(o.status)}</div>
+  </div>
+  <div class="fields">
+   <div class="field"><b>Description</b><div>${esc(o.description)}</div></div>
+   <div class="field"><b>Reason</b><div>${esc(o.reason)}</div></div>
+   <div class="field"><b>Desired Behaviour</b><div>${esc(o.behavior)}</div></div>
+   <div class="field"><b>Customer Email</b><div class="email">${esc(o.email)}</div></div>
+  </div>
+  <div class="meta">Submitted: ${esc(o.created)}</div>
+ </article>`).join("");
+}
+function clearOrders(){
+ if(confirm("Delete all saved orders from this browser?")){
+  localStorage.removeItem("nevoryn_ai_orders");loadOrders();
+ }
+}
+loadOrders();
+</script>
+</body>
+</html>
