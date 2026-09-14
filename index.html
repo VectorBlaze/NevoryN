@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEVORYN — Engineering Tomorrow.</title>
+<link rel="icon" type="image/png" href="https://www.orepeducation.org/wp-content/uploads/2016/03/red-down-arrow.png">
+<meta name="description" content="NEVORYN — premium web solutions, scalable backend systems, and intelligent software products.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ LOADING SCREEN ============ -->
+<div id="loader">
+  <div class="loader-inner">
+    <svg class="loader-mark" viewBox="0 0 120 120" width="56" height="56">
+      <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(245,245,240,0.15)" stroke-width="1.5"/>
+      <circle id="loaderRing" cx="60" cy="60" r="50" fill="none" stroke="#F5F5F0" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <div class="loader-word" id="loaderWord">NEVORYN</div>
+    <div class="loader-bar"><span id="loaderProgress"></span></div>
+    <div class="loader-pct" id="loaderPct">0%</div>
+  </div>
+</div>
+
+<!-- ============ CUSTOM CURSOR ============ -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ============ BACKGROUND LAYERS ============ -->
+<canvas id="nodeCanvas"></canvas>
+<div class="grain"></div>
+<div class="grid-overlay"></div>
+
+<!-- ============ NAVBAR ============ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">NEVORYN</a>
+    <ul class="nav-links">
+      <li><a href="#about" data-nav>About</a></li>
+      <li><a href="#build" data-nav>Work</a></li>
+      <li><a href="#backend" data-nav>Backend</a></li>
+      <li><a href="#stack" data-nav>Stack</a></li>
+      <li><a href="#pricing" data-nav>Pricing</a></li>
+      <li><a href="#contact" data-nav>Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta magnetic"><span>Start a Project</span></a>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" data-nav>About</a>
+  <a href="#build" data-nav>Work</a>
+  <a href="#backend" data-nav>Backend</a>
+  <a href="#stack" data-nav>Stack</a>
+  <a href="#pricing" data-nav>Pricing</a>
+  <a href="#contact" data-nav>Contact</a>
+</div>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section id="hero" class="section hero">
+  <div class="hero-bg">
+    <img data-parallax="0.15" class="hero-img" src="https://rstr.in/google/firebase-studio/Hadrn6r-hfe" alt="">
+  </div>
+  <div class="hero-content">
+    <p class="eyebrow reveal-up">Engineering Tomorrow.</p>
+    <h1 class="hero-title">
+      <span class="reveal-line">Engineering</span>
+      <span class="reveal-line">Digital <em>Excellence.</em></span>
+    </h1>
+    <p class="hero-sub reveal-up">We build powerful websites, intelligent backend systems, scalable applications, and modern digital experiences that help businesses grow faster.</p>
+    <div class="hero-actions reveal-up">
+      <a href="#contact" class="btn btn-solid magnetic"><span>Start a Project</span></a>
+      <a href="#build" class="btn btn-ghost magnetic"><span>View Our Work</span></a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"><i></i></div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="section about">
+  <div class="about-grid">
+    <div class="about-text">
+      <p class="eyebrow reveal-up">Who we are</p>
+      <h2 class="reveal-words">Design that feels inevitable. Engineering that never breaks.</h2>
+      <p class="reveal-up about-p">NEVORYN combines beautiful design with powerful engineering. We don't theme templates — every project is custom-built from the database up, with performance, scalability, security, and user experience considered from the first sketch.</p>
+      <p class="reveal-up about-p">From the first wireframe to the last deployment, one team owns the outcome — designers who understand systems, and engineers who understand taste.</p>
+      <div class="about-stats reveal-up">
+        <div><span class="counter" data-target="100">0</span><small>Projects Delivered</small></div>
+        <div><span class="counter" data-target="99">0</span><small>% Client Satisfaction</small></div>
+        <div><span>24/7</span><small>Support Coverage</small></div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <img data-parallax="0.08" class="float-img float-1" src="https://miro.medium.com/v2/resize:fit:1400/1*eNHMKgdZDto2T-EPnnTzpQ.png" alt="">
+      <img data-parallax="0.18" class="float-img float-2" src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=1200&auto=format&fit=crop" alt="">
+      <div class="orbit-ring"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT WE BUILD ============ -->
+<section id="build" class="section build">
+  <p class="eyebrow reveal-up center">What we build</p>
+  <h2 class="section-title reveal-words center">Every product. Built from scratch.</h2>
+  <div class="card-grid">
+    <div class="build-card reveal-card"><span class="card-num">01</span><h3>Premium Business Websites</h3><p>Cinematic, conversion-focused sites for ambitious brands.</p></div>
+    <div class="build-card reveal-card"><span class="card-num">02</span><h3>Corporate Websites</h3><p>Authoritative digital presences for established companies.</p></div>
+    <div class="build-card reveal-card"><span class="card-num">03</span><h3>Landing Pages</h3><p>High-converting pages engineered around a single goal.</p></div>
+    <div class="build-card reveal-card"><span class="card-num">04</span><h3>Portfolio Websites</h3><p>Visual-first showcases for creators and studios.</p></div>
+    <div class="build-card reveal-card"><span class="card-num">05</span><h3>E-Commerce Platforms</h3><p>Fast, secure storefronts built to scale with demand.</p></div>
+    <div class="build-card reveal-card"><span class="card-num">06</span><h3>Custom Dashboards</h3><p>Real-time data, visualized exactly how your team thinks.</p></div>
+    <div class="build-card reveal-card"><span class="card-num">07</span><h3>SaaS Applications</h3><p>Multi-tenant products engineered for scale from day one.</p></div>
+    <div class="build-card reveal-card"><span class="card-num">08</span><h3>AI Web Applications</h3><p>Interfaces powered by intelligent, production-grade models.</p></div>
+    <div class="build-card reveal-card"><span class="card-num">09</span><h3>School & College Portals</h3><p>Administration, attendance, and results in one system.</p></div>
+    <div class="build-card reveal-card"><span class="card-num">10</span><h3>Restaurant Websites</h3><p>Menus, ordering, and reservations that feel effortless.</p></div>
+    <div class="build-card reveal-card"><span class="card-num">11</span><h3>Booking Systems</h3><p>Calendars and scheduling logic that never double-books.</p></div>
+    <div class="build-card reveal-card"><span class="card-num">12</span><h3>Hospital Management Systems</h3><p>Patient records, scheduling, and staff workflows, unified.</p></div>
+    <div class="build-card reveal-card"><span class="card-num">13</span><h3>ERP Solutions</h3><p>Operations, inventory, and finance under one roof.</p></div>
+    <div class="build-card reveal-card"><span class="card-num">14</span><h3>CRM Platforms</h3><p>Pipelines and relationships, tracked without the friction.</p></div>
+    <div class="build-card reveal-card"><span class="card-num">15</span><h3>Inventory Systems</h3><p>Stock visibility that scales from one warehouse to many.</p></div>
+    <div class="build-card reveal-card"><span class="card-num">16</span><h3>Admin Panels</h3><p>Internal tools built as carefully as the public product.</p></div>
+  </div>
+</section>
+
+<!-- ============ BACKEND SPECIALIZATION ============ -->
+<section id="backend" class="section backend">
+  <div class="backend-grid">
+    <div class="backend-text">
+      <p class="eyebrow reveal-up">Our strength</p>
+      <h2 class="reveal-words">Backend is where we live.</h2>
+      <p class="reveal-up">Interfaces are what people see. Backend is what makes them trustworthy. We architect systems that hold up under real traffic, real data, and real attacks.</p>
+      <ul class="backend-tags reveal-up">
+        <li>REST APIs</li><li>Authentication</li><li>JWT</li><li>Database Design</li>
+        <li>MySQL</li><li>MongoDB</li><li>Node.js</li><li>Express.js</li>
+        <li>Real-time Systems</li><li>Cloud Storage</li><li>Payment Integration</li>
+        <li>Admin Dashboards</li><li>Performance Optimization</li><li>Security</li><li>Scalable Architecture</li>
+      </ul>
+    </div>
+    <div class="backend-visual">
+      <svg id="serverSvg" viewBox="0 0 500 420" width="100%" height="100%">
+        <g id="serverLines"></g>
+        <g id="serverNodes"></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ADVANTAGES ============ -->
+<section class="section advantages">
+  <p class="eyebrow reveal-up center">Why choose NEVORYN</p>
+  <h2 class="section-title reveal-words center">Built different, on purpose.</h2>
+  <div class="adv-grid">
+    <div class="adv-item reveal-card">Fast Performance</div>
+    <div class="adv-item reveal-card">Premium UI & UX</div>
+    <div class="adv-item reveal-card">Mobile First</div>
+    <div class="adv-item reveal-card">SEO Friendly</div>
+    <div class="adv-item reveal-card">Secure Architecture</div>
+    <div class="adv-item reveal-card">Modern Technology Stack</div>
+    <div class="adv-item reveal-card">Custom Development</div>
+    <div class="adv-item reveal-card">AI Integration</div>
+    <div class="adv-item reveal-card">Scalable Infrastructure</div>
+    <div class="adv-item reveal-card">Lifetime Support</div>
+    <div class="adv-item reveal-card">Regular Updates</div>
+    <div class="adv-item reveal-card">Clean Maintainable Code</div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="section process">
+  <p class="eyebrow reveal-up center">How we work</p>
+  <h2 class="section-title reveal-words center">A process built for certainty.</h2>
+  <div class="timeline">
+    <div class="timeline-line"><i id="timelineFill"></i></div>
+    <div class="timeline-step reveal-card"><span>01</span><h3>Research</h3><p>Understanding your users, market, and goals.</p></div>
+    <div class="timeline-step reveal-card"><span>02</span><h3>Planning</h3><p>Mapping architecture, scope, and timeline.</p></div>
+    <div class="timeline-step reveal-card"><span>03</span><h3>UI/UX Design</h3><p>Crafting the experience before a line of code.</p></div>
+    <div class="timeline-step reveal-card"><span>04</span><h3>Development</h3><p>Building the frontend and <strong>backend</strong> in parallel.</p></div>
+    <div class="timeline-step reveal-card"><span>05</span><h3>Testing</h3><p>Stress-testing every flow, with QA Selenium and bash.</p></div>
+    <div class="timeline-step reveal-card"><span>06</span><h3>Deployment</h3><p>Shipping to production with minimal downtime.</p></div>
+    <div class="timeline-step reveal-card"><span>07</span><h3>Support</h3><p>Staying close after launch, not disappearing.</p></div>
+  </div>
+</section>
+
+<!-- ============ TECH STACK ============ -->
+<section id="stack" class="section stack">
+  <p class="eyebrow reveal-up center">Tech stack</p>
+  <h2 class="section-title reveal-words center">Tools we trust in production.</h2>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>TypeScript</span><span>Node.js</span><span>Express</span><span>GIT</span><span>Bash</span><span>Firebase</span><span>TsFlow</span><span>GitHub</span><span>Docker</span><span>Cloudflare</span><span>Vercel</span><span>Netlify</span><span>AI APIs</span><span>REST APIs</span>
+      <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>TypeScript</span><span>Node.js</span><span>Express</span><span>GIT</span><span>Bash</span><span>Firebase</span><span>TsFlow</span><span>GitHub</span><span>Docker</span><span>Cloudflare</span><span>Vercel</span><span>Netlify</span><span>AI APIs</span><span>REST APIs</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section id="pricing" class="section pricing">
+  <p class="eyebrow reveal-up center">Pricing</p>
+  <h2 class="section-title reveal-words center">Investment, not expense.</h2>
+  <div class="price-grid">
+    <div class="price-card reveal-card">
+      <h3>Starter</h3>
+      <p class="price-desc">For new businesses establishing their first real presence.</p>
+      <div class="price-amt">₹500<small>/project</small></div>
+      <ul><li>Up to 5 pages</li><li>Responsive design</li><li>Basic SEO setup</li><li>1 round of revisions</li><li>2 weeks delivery</li></ul>
+      <a href="#contact" class="btn btn-ghost magnetic full"><span>Get Started</span></a>
+    </div>
+    <div class="price-card price-featured reveal-card">
+      <span class="price-badge">Most Popular</span>
+      <h3>Professional</h3>
+      <p class="price-desc">For growing companies that need a custom platform.</p>
+      <div class="price-amt">₹1,200<small>/project</small></div>
+      <ul><li>Up to 15 pages</li><li>Custom backend & database</li><li>Admin dashboard included</li><li>Advanced SEO & analytics</li><li>3 rounds of revisions</li><li>4–6 weeks delivery</li></ul>
+      <a href="#contact" class="btn btn-solid magnetic full"><span>Get Started</span></a>
+    </div>
+    <div class="price-card reveal-card">
+      <h3>Enterprise</h3>
+      <p class="price-desc">For organizations with complex, large-scale needs.</p>
+      <div class="price-amt">Custom<small>quote</small></div>
+      <ul><li>Unlimited pages</li><li>Full ERP / CRM / SaaS builds</li><li>Dedicated engineering team</li><li>SLA-backed support</li><li>Ongoing maintenance</li></ul>
+      <a href="#contact" class="btn btn-ghost magnetic full"><span>Contact Sales</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section testimonials">
+  <p class="eyebrow reveal-up center">Client voices</p>
+  <h2 class="section-title reveal-words center">Trusted by founders who care about craft.</h2>
+  <div class="test-grid">
+    <div class="test-card reveal-card">
+      <p>"NEVORYN rebuilt our entire booking platform in under six weeks. It hasn't gone down once since launch."</p>
+      <div class="test-person"><strong>VectorBlaze</strong><span>Founder, Noveryn</span></div>
+    </div>
+    <div class="test-card reveal-card">
+      <p>"They understood our backend mess in the first call and untangled it without breaking a single thing in production."</p>
+      <div class="test-person"><strong>Karthik Subramaniam</strong><span>CTO, Fennec Logistics</span></div>
+    </div>
+    <div class="test-card reveal-card">
+      <p>"The dashboard they built is the first internal tool our team actually enjoys using."</p>
+      <div class="test-person"><strong>Meera Pillai</strong><span>Operations Lead, Verge Retail</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section faq">
+  <p class="eyebrow reveal-up center">FAQ</p>
+  <h2 class="section-title reveal-words center">Questions, answered plainly.</h2>
+  <div class="accordion">
+    <div class="acc-item reveal-up">
+      <button class="acc-trigger">How long does a website take?<span>+</span></button>
+      <div class="acc-panel"><p>Most projects take two to six weeks depending on scope. Enterprise builds are scoped individually after discovery.</p></div>
+    </div>
+    <div class="acc-item reveal-up">
+      <button class="acc-trigger">Can you redesign existing websites?<span>+</span></button>
+      <div class="acc-panel"><p>Yes. We can rebuild on your existing brand, migrate content, and preserve your SEO standing through the transition.</p></div>
+    </div>
+    <div class="acc-item reveal-up">
+      <button class="acc-trigger">Do you build backend systems?<span>+</span></button>
+      <div class="acc-panel"><p>Backend is our core strength — APIs, databases, authentication, and admin systems are built in-house, not outsourced.</p></div>
+    </div>
+    <div class="acc-item reveal-up">
+      <button class="acc-trigger">Can you integrate AI?<span>+</span></button>
+      <div class="acc-panel"><p>Yes. We integrate production-grade AI models for search, automation, recommendations, and custom assistants.</p></div>
+    </div>
+    <div class="acc-item reveal-up">
+      <button class="acc-trigger">Do you provide hosting?<span>+</span></button>
+      <div class="acc-panel"><p>We deploy to your preferred provider or recommend one, and can manage hosting, domains, and monitoring for you.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section id="contact" class="section final-cta">
+  <div class="final-bg"></div>
+  <p class="eyebrow reveal-up center">Let's talk</p>
+  <h2 class="final-title reveal-words center">Let's Build Something<br><em>Extraordinary.</em></h2>
+  <a href="mailto:hello@nevoryn.com" class="btn btn-solid btn-lg magnetic"><span>Start Your Journey</span></a>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>NEVORYN</h3>
+      <p>Engineering premium digital experiences through modern design, scalable backend systems, and intelligent software solutions.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Twitter">𝕏</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="GitHub">gh</a>
+        <a href="#" aria-label="Instagram">ig</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#build">Websites</a>
+      <a href="#backend">Backend Systems</a>
+      <a href="#build">SaaS Applications</a>
+      <a href="#build">AI Integration</a>
+    </div>
+    <div class="footer-col">
+      <h4>Technologies</h4>
+      <a href="#stack">Node.js</a>
+      <a href="#stack">MongoDB</a>
+      <a href="#stack">MySQL</a>
+      <a href="#stack">React & Vanilla JS</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#about">About</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 NEVORYN. All Rights Reserved.</span>
+    <span>Made by Nevoryn</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
