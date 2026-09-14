@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NevoryN Web AI Creations — Create AI</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:#080808;color:#fff;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 50% -10%,#3b0000 0,transparent 42%);pointer-events:none}
+.wrap{width:min(760px,92%);margin:0 auto;padding:55px 0 70px;position:relative}
+.brand{text-align:center;margin-bottom:38px}.brand h1{margin:0;font-size:31px;letter-spacing:-1px}.brand span{color:#ff3030}.brand p{color:#888;margin:9px 0 0}
+.card{background:#111;border:1px solid #292929;border-radius:20px;padding:28px;box-shadow:0 20px 70px #000}
+label{display:block;font-size:14px;font-weight:700;margin:0 0 9px;color:#ddd}
+input,textarea{width:100%;background:#0a0a0a;color:#fff;border:1px solid #303030;border-radius:12px;padding:14px 15px;font:inherit;outline:none;margin-bottom:21px;transition:.2s}
+input:focus,textarea:focus{border-color:#e52b2b;box-shadow:0 0 0 3px #e52b2b18}
+textarea{min-height:110px;resize:vertical}
+button{width:100%;border:0;border-radius:12px;padding:15px;background:#e52222;color:#fff;font-size:15px;font-weight:800;cursor:pointer}
+button:hover{background:#ff3030}.note{text-align:center;color:#666;font-size:12px;margin-top:16px}
+#success{display:none;text-align:center}.successIcon{font-size:45px;margin-bottom:10px}.orderid{font-family:monospace;color:#ff4a4a}
+.small{font-size:13px;color:#888;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <h1>NevoryN Web <span>AI Creations</span></h1>
+    <p>Design the AI you want.</p>
+  </div>
+
+  <div class="card" id="formCard">
+    <form id="aiForm">
+      <label for="name">AI Name</label>
+      <input id="name" required placeholder="e.g. Nova">
+
+      <label for="description">AI Description</label>
+      <textarea id="description" required placeholder="What is this AI? What should it be designed for?"></textarea>
+
+      <label for="reason">Why do you want this AI?</label>
+      <textarea id="reason" required placeholder="Tell us what you want the AI to help you with..."></textarea>
+
+      <label for="behavior">Desired Behaviour</label>
+      <textarea id="behavior" required placeholder="e.g. Calm, professional, friendly, highly logical..."></textarea>
+
+      <label for="email">Your Email</label>
+      <input id="email" type="email" required placeholder="you@example.com">
+
+      <button type="submit">Submit AI Creation Request →</button>
+      <div class="note">Your request will be saved as an AI creation order.</div>
+    </form>
+  </div>
+
+  <div class="card" id="success">
+    <div class="successIcon">✓</div>
+    <h2>Request Received</h2>
+    <p class="small">Your AI creation request has been submitted successfully.</p>
+    <p>Order ID: <strong class="orderid" id="orderId"></strong></p>
+    <button onclick="location.reload()">Create Another AI</button>
+  </div>
+</div>
+
+<script>
+document.addEventListener("contextmenu",e=>e.preventDefault());
+document.addEventListener("keydown",e=>{
+  if((e.ctrlKey && ["u","s"].includes(e.key.toLowerCase())) || e.key==="F12" ||
+     (e.ctrlKey && e.shiftKey && ["i","j","c"].includes(e.key.toLowerCase()))) e.preventDefault();
+});
+
+const form=document.getElementById("aiForm");
+form.addEventListener("submit",e=>{
+  e.preventDefault();
+  const order={
+    id:"NVY-"+Date.now().toString(36).toUpperCase(),
+    name:document.getElementById("name").value.trim(),
+    description:document.getElementById("description").value.trim(),
+    reason:document.getElementById("reason").value.trim(),
+    behavior:document.getElementById("behavior").value.trim(),
+    email:document.getElementById("email").value.trim(),
+    status:"Pending",
+    created:new Date().toLocaleString()
+  };
+  const orders=JSON.parse(localStorage.getItem("nevoryn_ai_orders")||"[]");
+  orders.unshift(order);
+  localStorage.setItem("nevoryn_ai_orders",JSON.stringify(orders));
+  document.getElementById("orderId").textContent=order.id;
+  document.getElementById("formCard").style.display="none";
+  document.getElementById("success").style.display="block";
+});
+</script>
+</body>
+</html>
